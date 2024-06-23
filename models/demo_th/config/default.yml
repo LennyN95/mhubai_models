@@ -5,9 +5,9 @@ general:
 
 execute:
 - DicomImporter
-- module: AttributeFilter
-  instance_attributes:
-    sid: 1.2.840.113654.2.55.221581533879834196356530174246594024639
+# - module: AttributeFilter
+#   instance_attributes:
+#     sid: 1.2.840.113654.2.55.221581533879834196356530174246594024639
 - NiftiConverter
 - Thresholder
 - DsegConverter
