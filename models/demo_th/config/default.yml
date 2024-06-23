@@ -1,0 +1,27 @@
+general:
+  data_base_dir: /app/data
+  version: 1.0
+  description: "default configuration for demo thresholding model"
+
+execute:
+- DicomImporter
+- module: AttributeFilter
+  instance_attributes:
+    sid: 1.2.840.113654.2.55.221581533879834196356530174246594024639
+- NiftiConverter
+- Thresholder
+- DsegConverter
+- DataOrganizer
+
+modules:
+  DicomImporter:
+    meta: 
+      mod: '%Modality'
+
+  Thresholder:
+    lower: 200
+    upper: 500
+
+  DataOrganizer:
+    targets:
+      - dicomseg:mod=seg-->[i:sid]/th.seg.dcm
